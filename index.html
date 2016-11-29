@@ -38,7 +38,7 @@ function check(evt) {
   $el = $(evt.target);
   var job_id = $el.data('job_id');
   $.ajax({
-    url: "http://" + $('#username').val() + ".carto.com/api/v2/sql/job/" + job_id + "?api_key=" + $('#api_key').val(),
+    url: "https://" + $('#username').val() + ".carto.com/api/v2/sql/job/" + job_id + "?api_key=" + $('#api_key').val(),
   }).done(function (resp) {
     $el.append($('<div />').addClass('result').text(JSON.stringify(resp)));
   }).fail(function (err) {
@@ -49,7 +49,7 @@ $('#batch').on('submit', function (evt) {
   evt.preventDefault();
   $.ajax({
     method: 'POST',
-    url: "http://" + $('#username').val() + ".carto.com/api/v2/sql/job?api_key=" + $('#api_key').val(),
+    url: "https://" + $('#username').val() + ".carto.com/api/v2/sql/job?api_key=" + $('#api_key').val(),
     //contentType: 'json',
     data: {
       query: $('#query').val() 
